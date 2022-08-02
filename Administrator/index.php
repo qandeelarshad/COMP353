@@ -3,9 +3,9 @@
 require_once '../database.php';
 
 // $db_name = "ruc353_1";
-// $table_name = ".Country";
+// $table_name = ".User";
 $db_name = "local_ruc353_1";
-$table_name = ".country";
+$table_name = ".user";
 
 $sql_query = "SELECT * FROM " .$db_name.$table_name;
 $statement = $conn->query($sql_query);
@@ -29,8 +29,10 @@ $statement = $conn->query($sql_query);
             <!-- row -->
             <tr>
                 <!-- cell -->
-                <td>country_id</td>
-                <td>country_name</td>
+                <td>user_id</td>
+                <td>user_first_name</td>
+                <td>user_last_name</td>
+                <td>user_phone</td>
                 <td>region_id</td>
                 <td>government_id</td>       
             </tr>

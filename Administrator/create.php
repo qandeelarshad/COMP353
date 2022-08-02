@@ -1,9 +1,9 @@
 <?php require_once '../database.php';
 
 // $db_name = "ruc353_1";
-// $table_name = ".Country";
+// $table_name = ".User";
 $db_name = "local_ruc353_1";
-$table_name = ".country";
+$table_name = ".user";
 
 // check if all data has been passed
 if(isset($_POST["country_name"]) && isset($_POST["region_id"]) && isset($_POST["government_id"])) {
