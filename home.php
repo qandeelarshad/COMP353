@@ -53,7 +53,8 @@ if ($_SESSION['role_id'] == 1 ) {
   <option value="13">13</option>  
   <option value="14">14</option>   
 </select> -->
-<a href="./User/index.php">View Users</a>
+<a href="./User/index.php">View Users</a> <br>
+<a href="./Country/index.php">View Countries</a>
 <?php } ?>
 
 <br>
