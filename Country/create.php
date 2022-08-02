@@ -7,6 +7,7 @@ $table_name = ".country";
 
 // check if all data has been passed
 if(isset($_POST["country_name"]) && isset($_POST["region_id"]) && isset($_POST["government_id"])) {
+    
     $country = $conn->prepare("INSERT INTO " .$db_name.$table_name. " (country_name, region_id, government_id)
                                 VALUES (:country_name, :region_id, :government_id);");
 
