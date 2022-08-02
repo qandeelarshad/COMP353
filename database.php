@@ -8,9 +8,16 @@ $username = 'root';
 $password = '';
 $database = 'mysql';
 
-try {
+// $conn = mysqli_connect($servername, $username, $password, $database);
+
+// if (!$conn) {
+//     echo "Connection Failed";
+// }
+
+
     $conn = new PDO("mysql:host=$servername;dbname=$database;", $username, $password);
-} catch (PDOException $e) {
-    die('Connection Failed: ' . $e->getMessage());
-}
+
+    if (!$conn) {
+        echo "Connection Failed";
+    }
 ?>

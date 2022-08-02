@@ -1,49 +1,32 @@
 <?php 
-$sname= "localhost:3306";
-$unmae= "root";
-$password = "";
-$db_name = "mysql";
-
-$conn = mysqli_connect($sname, $unmae, $password, $db_name);
-
-if (!$conn) {
-
-    echo "Connection failed!";
-
-}
-
-
 session_start(); 
 
-include "./database.php";
+require_once "database.php";
 
-if (isset($_POST['user_username']) && isset($_POST['user_password'])) {
+// if (isset($_POST['user_username']) && isset($_POST['user_password'])) {
 
-    function validate($data){
-       $data = trim($data);
-       $data = stripslashes($data);
-       $data = htmlspecialchars($data);
-       return $data;
-    }
+//     function validate($data){
+//        $data = trim($data);
+//        $data = stripslashes($data);
+//        $data = htmlspecialchars($data);
+//        return $data;
+//     }
+// }
 
-    $uname = validate($_POST['user_username']);
+    // $uname = validate($_POST['user_username']);
+    // $pass = validate($_POST['user_password']);
 
-    $pass = validate($_POST['user_password']);
+    $uname = $_POST['user_username'];
+    $pass = $_POST['user_password'];
 
     if (empty($uname)) {
-
         header("Location: index.php?error=User Name is required");
-
         exit();
 
-    }else if(empty($pass)){
-
+    } else if (empty($pass)){
         header("Location: index.php?error=Password is required");
-
         exit();
-
-    } 
-    else {
+    }
 
         $db_name = "local_ruc353_1";
         $table_name = ".user";
@@ -51,53 +34,46 @@ if (isset($_POST['user_username']) && isset($_POST['user_password'])) {
         // $getuser = $conn->prepare("SELECT * FROM " .$db_name.$table_name. " 
         //                                 WHERE user_username='$uname' AND user_password='$pass';");
 
-         $sql = "SELECT * FROM " .$db_name.$table_name. " WHERE user_username='$uname' AND user_password='$pass';";
+        $sql_query = "SELECT * FROM " .$db_name.$table_name. " WHERE user_username='$uname' AND user_password='$pass';";
 
-        $result = mysqli_query($conn, $sql);
+    
+        $result = $conn->query($sql_query);
+        
 
-        if (mysqli_num_rows($result) === 1) {
+        if ($result->rowCount() === 1) {
+            while ($row = $result->fetch(PDO::FETCH_ASSOC, PDO::FETCH_ORI_NEXT)) {
 
-            $row = mysqli_fetch_assoc($result);
+            // $row = mysqli_fetch_assoc($result);
 
-            if ($row['user_username'] === $uname && $row['user_password'] === $pass) {
+
+            if ($row['user_username'] == $uname && $row['user_password'] == $pass) {
 
                 echo "Logged in!";
 
+                // Log in session
                 $_SESSION['user_username'] = $row['user_username'];
-
                 $_SESSION['user_first_name'] = $row['user_first_name'];
-
                 $_SESSION['user_id'] = $row['user_id'];
 
-                header("Location: ./Country/index.php");
-
+                header("Location: ./Country/index.php"); //check this
                 exit();
 
-            }else{
+            }
+            else{
 
                 header("Location: index.php?error=Incorect User name or password");
-
                 exit();
 
             }
 
-        }else{
+        }
+    }
+        else{
 
             header("Location: index.php?error=Incorect User name or password");
-
             exit();
 
         }
-
-    }
-
-} else {
-
-    header("Location: index.php");
-
-    exit();
-
-}
 
 ?>
 
