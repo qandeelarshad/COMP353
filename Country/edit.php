@@ -1,7 +1,11 @@
 <?php require_once '../database.php';
 
+// $db_name = "ruc353_1";
+$db_name = "local_ruc353_1";
+$table_name = ".country";
+
 //show current data of country:
-$getcountry = $conn->prepare("SELECT * FROM local_ruc353_1.country AS country
+$getcountry = $conn->prepare("SELECT * FROM " .$db_name.$table_name. " AS country
                             WHERE country.country_id = :country_id;");
 
 $getcountry->bindParam(":country_id", $_GET["country_id"]);
@@ -14,7 +18,7 @@ if(isset($_POST["country_name"]) &&
    isset($_POST["government_id"]) && 
    isset($_POST["country_id"])) {
     
-    $countryUpdate = $conn->prepare("UPDATE local_ruc353_1.country SET country_name = :country_name,
+    $countryUpdate = $conn->prepare("UPDATE " .$db_name.$table_name. " SET country_name = :country_name,
                                                                     region_id = :region_id, 
                                                                     government_id = :government_id
                                 WHERE country_id = :country_id;");

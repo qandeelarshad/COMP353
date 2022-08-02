@@ -2,12 +2,11 @@
 // backend code goes here
 require_once '../database.php';
 
-//table_name = ruc353_1.Country
-//^^^^^^^^^^^^^^^^^^^^^^
-//use this for actual db
+// $db_name = "ruc353_1";
+$db_name = "local_ruc353_1";
+$table_name = ".country";
 
-$table_name = 'local_ruc353_1.country';
-$sql_query = 'SELECT * FROM'.' '.$table_name;
+$sql_query = "SELECT * FROM " .$db_name.$table_name;
 $statement = $conn->query($sql_query);
 // $statement->execute();
 ?>

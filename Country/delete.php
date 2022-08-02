@@ -1,7 +1,10 @@
 <?php require_once '../database.php';
 
-$delete = $conn->prepare("DELETE FROM local_ruc353_1.country
-                            WHERE country_id = :country_id; ");
+// $db_name = "ruc353_1";
+$db_name = "local_ruc353_1";
+$table_name = ".country";
+
+$delete = $conn->prepare("DELETE FROM " .$db_name.$table_name. " WHERE country_id = :country_id; ");
 
 $delete->bindParam(":country_id", $_GET["country_id"]);
 $delete->execute();
