@@ -1,8 +1,9 @@
 <?php require_once '../database.php';
 
-// $db_name = "ruc353_1";
-$db_name = "local_ruc353_1";
-$table_name = ".country";
+$db_name = "ruc353_1";
+$table_name = ".Country";
+// $db_name = "local_ruc353_1";
+// $table_name = ".country";
 
 //show current data of country:
 $getcountry = $conn->prepare("SELECT * FROM " .$db_name.$table_name. " AS country

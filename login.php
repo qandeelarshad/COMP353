@@ -28,10 +28,10 @@ require_once "database.php";
         exit();
     }
 
-    // $db_name = "local_ruc353_1";
-    // $table_name = ".User";
-        $db_name = "local_ruc353_1";
-        $table_name = ".user";
+    $db_name = "ruc353_1";
+    $table_name = ".User";
+        // $db_name = "local_ruc353_1";
+        // $table_name = ".user";
 
         // $getuser = $conn->prepare("SELECT * FROM " .$db_name.$table_name. " 
         //                                 WHERE user_username='$uname' AND user_password='$pass';");

@@ -1,10 +1,10 @@
 <?php require_once '../database.php';
 session_start();
 
-// $db_name = "ruc353_1";
-// $table_name = ".Article";
-$db_name = "local_ruc353_1";
-$table_name = ".article";
+$db_name = "ruc353_1";
+$table_name = ".Article";
+// $db_name = "local_ruc353_1";
+// $table_name = ".article";
 
 // check if all data has been passed
 if ($_SESSION['role_id'] == 2) {
@@ -138,10 +138,10 @@ if ($_SESSION['role_id'] == 2) {
     <?php
      if (isset($_POST['article_title'])) {
         // include("../mail.php");
-        // $db_name = "ruc353_1";
-        // $table_name = ".Article";
-        $db_name = "local_ruc353_1";
-        $table_name = ".subscription";
+        $db_name = "ruc353_1";
+        $table_name = ".Article";
+        // $db_name = "local_ruc353_1";
+        // $table_name = ".subscription";
         $user_id = $_SESSION['user_id'];
 
         $sql = "SELECT * FROM " .$db_name.$table_name. " WHERE subscription_researcher_id = '$user_id'";

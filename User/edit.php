@@ -1,9 +1,9 @@
 <?php require_once '../database.php';
 
-// $db_name = "ruc353_1";
-// $table_name = ".User";
-$db_name = "local_ruc353_1";
-$table_name = ".user";
+$db_name = "ruc353_1";
+$table_name = ".User";
+// $db_name = "local_ruc353_1";
+// $table_name = ".user";
 
 //show current data of country:
 $getuser = $conn->prepare("SELECT * FROM " .$db_name.$table_name. " AS user

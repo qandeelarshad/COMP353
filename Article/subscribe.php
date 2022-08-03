@@ -1,10 +1,10 @@
 <?php
         require_once '../database.php';
         session_start();
-        // $db_name = "ruc353_1";
-        // $table_name = ".User";
-        $db_name = "local_ruc353_1";
-        $table_name = ".user";
+        $db_name = "ruc353_1";
+        $table_name = ".User";
+        // $db_name = "local_ruc353_1";
+        // $table_name = ".user";
 
         // get recipient
         // $recipient = $conn->prepare("SELECT " .$db_name. ":user_email FROM " .$db_name.$table_name. " AS user

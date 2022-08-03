@@ -1,14 +1,16 @@
 <?php require_once '../database.php';
 
-// $db_name = "ruc353_1";
-// $table_name = ".User";
-$db_name = "local_ruc353_1";
-$table_name = ".user";
+$db_name = "ruc353_1";
+$table_name = ".User";
+// $db_name = "local_ruc353_1";
+// $table_name = ".user";
 
 // check if all data has been passed
 if(isset($_POST["user_first_name"])
  && isset($_POST["user_last_name"]) 
-&& isset($_POST["user_phone"]) && isset($_POST["user_email"]) && isset($_POST["user_username"])
+&& isset($_POST["user_phone"]) 
+&& isset($_POST["user_email"]) 
+&& isset($_POST["user_username"])
 && isset($_POST["user_password"]) 
 // && isset($_POST["role_id"]) && isset($_POST["user_citizenship"])
 ) {

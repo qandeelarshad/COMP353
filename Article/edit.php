@@ -1,10 +1,10 @@
 <?php require_once '../database.php';
 session_start();
 
-// $db_name = "ruc353_1";
-// $table_name = ".Country";
-$db_name = "local_ruc353_1";
-$table_name = ".article";
+$db_name = "ruc353_1";
+$table_name = ".Country";
+// $db_name = "local_ruc353_1";
+// $table_name = ".article";
 
 //show current data of country:
 $getarticle = $conn->prepare("SELECT * FROM " .$db_name.$table_name. " AS article

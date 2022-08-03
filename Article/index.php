@@ -4,10 +4,10 @@ require_once '../database.php';
 
 session_start();
 
-// $db_name = "ruc353_1";
-// $table_name = ".Country";
-$db_name = "local_ruc353_1";
-$table_name = ".article";
+$db_name = "ruc353_1";
+$table_name = ".Article";
+// $db_name = "local_ruc353_1";
+// $table_name = ".article";
 
 $sql_query = "SELECT * FROM " .$db_name.$table_name;
 $statement = $conn->query($sql_query);
