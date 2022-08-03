@@ -73,22 +73,22 @@ if(isset($_POST["article_id"]) &&
         <input type="number" name="article_id" id="article_id" value="<?= $article["article_id"] ?>"> <br>
 
         <label for="article_title"> Article title</label><br>
-        <input type="number" name="article_title" id="article_title" value="<?= $article["article_title"] ?>"> <br>
+        <input type="text" name="article_title" id="article_title" value="<?= $article["article_title"] ?>"> <br>
 
         <label for="article_major_topic"> Article major topic</label><br>
-        <input type="number" name="article_major_topic" id="article_major_topic" value="<?= $article["article_major_topic"] ?>"> <br>
+        <input type="text" name="article_major_topic" id="article_major_topic" value="<?= $article["article_major_topic"] ?>"> <br>
 
         <label for="article_minor_topic"> Article minor topic</label><br>
-        <input type="number" name="article_minor_topic" id="article_minor_topic" value="<?= $article["article_minor_topic"] ?>"> <br>
+        <input type="text" name="article_minor_topic" id="article_minor_topic" value="<?= $article["article_minor_topic"] ?>"> <br>
 
         <label for="article_summary"> Summary</label><br>
-        <input type="number" name="article_summary" id="article_summary" value="<?= $article["article_summary"] ?>"> <br>
+        <input type="text" name="article_summary" id="article_summary" value="<?= $article["article_summary"] ?>"> <br>
 
         <label for="article_body"> Body</label><br>
-        <input type="number" name="article_body" id="article_body" value="<?= $article["article_body"] ?>"> <br>
+        <input type="text" name="article_body" id="article_body" value="<?= $article["article_body"] ?>"> <br>
 
         <label for="article_date_published"> Date published</label><br>
-        <input type="number" name="article_date_published" id="article_date_published" value="<?= $article["article_date_published"] ?>"> <br>
+        <input type="date" name="article_date_published" id="article_date_published" value="<?= $article["article_date_published"] ?>"> <br>
 
         <label for="article_researcher_id"> Researcher ID</label><br>
         <input type="number" name="article_researcher_id" id="article_researcher_id" value="<?= $article["article_researcher_id"] ?>"> <br>
@@ -97,7 +97,7 @@ if(isset($_POST["article_id"]) &&
         <input type="number" name="article_organization_id" id="article_organization_id" value="<?= $article["article_organization_id"] ?>"> <br>
 
         <label for="article_is_removed"> Article is removed</label><br>
-        <input type="number" name="article_is_removed" id="article_is_removed" value="<?= $article["article_is_removed"] ?>"> <br>
+        <input type="date" name="article_is_removed" id="article_is_removed" value="<?= $article["article_is_removed"] ?>"> <br>
 
         <button type="submit">Update</button>
     </form>
