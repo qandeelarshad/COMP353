@@ -1,6 +1,4 @@
-<?php 
-session_start(); 
-
+<?php session_start(); 
 require_once "database.php";
 
 // if (isset($_POST['user_username']) && isset($_POST['user_password'])) {
@@ -80,4 +78,3 @@ require_once "database.php";
         }
 
 ?>
-
