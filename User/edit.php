@@ -17,18 +17,29 @@ $user = $getuser->fetch(PDO::FETCH_ASSOC); //fetch the data to country
 if(isset($_POST["user_first_name"]) && isset($_POST["user_last_name"]) 
 && isset($_POST["user_phone"]) && isset($_POST["user_email"]) && isset($_POST["user_username"])
 && isset($_POST["user_password"]) && isset($_POST["role_id"]) && isset($_POST["user_citizenship"])
-&& isset($_POST["user_is_suspended"])) {
+//&& isset($_POST["user_is_suspended"])
+) {
     
+    // $countryUpdate = $conn->prepare("UPDATE " .$db_name.$table_name. " SET user_first_name = :user_first_name,
+    //                                                                         user_last_name =  :user_last_name, 
+    //                                                                         user_phone = :user_phone,
+    //                                                                         user_email = :user_email,
+    //                                                                         user_username = :user_username,
+    //                                                                         user_password = :user_password,
+    //                                                                         role_id = :role_id,
+    //                                                                         user_citizenship = :user_citizenship,
+    //                                                                         user_is_suspended = :user_is_suspended
+    //                                                             WHERE user_id = :user_id;");
+
     $countryUpdate = $conn->prepare("UPDATE " .$db_name.$table_name. " SET user_first_name = :user_first_name,
-                                                                            user_last_name =  :user_last_name, 
-                                                                            user_phone = :user_phone,
-                                                                            user_email = :user_email,
-                                                                            user_username = :user_username,
-                                                                            user_password = :user_password,
-                                                                            role_id = :role_id,
-                                                                            user_citizenship = :user_citizenship,
-                                                                            user_is_suspended = :user_is_suspended
-                                                                WHERE user_id = :user_id;");
+    user_last_name =  :user_last_name, 
+    user_phone = :user_phone,
+    user_email = :user_email,
+    user_username = :user_username,
+    user_password = :user_password,
+    role_id = :role_id,
+    user_citizenship = :user_citizenship
+WHERE user_id = :user_id;");
 
     $countryUpdate->bindParam(":user_id", $_POST["user_id"]);                                                                
     $countryUpdate->bindParam(":user_first_name", $_POST["user_first_name"]);
@@ -39,7 +50,7 @@ if(isset($_POST["user_first_name"]) && isset($_POST["user_last_name"])
     $countryUpdate->bindParam(":user_password", $_POST["user_password"]);
     $countryUpdate->bindParam(":role_id", $_POST["role_id"]);
     $countryUpdate->bindParam(":user_citizenship", $_POST["user_citizenship"]);
-    $countryUpdate->bindParam(":user_is_suspended", $_POST["user_is_suspended"]);
+    // $countryUpdate->bindParam(":user_is_suspended", $_POST["user_is_suspended"]);
 
 
     if ($countryUpdate->execute()) {
@@ -86,8 +97,7 @@ if(isset($_POST["user_first_name"]) && isset($_POST["user_last_name"])
         <label for="user_citizenship"> Citizenship</label><br>
         <input type="text" name="user_citizenship" id="user_citizenship" value="<?= $user["user_citizenship"] ?>"> <br>
 
-        <label for="user_is_suspended"> Suspension Date</label><br>
-        <input type="date" name="user_is_suspended" id="user_is_suspended" value="<?= $user["user_is_suspended"] ?>"> <br>
+
         
         <!-- hidden input -->
         <input type="hidden" name="user_id" id="user_id" value="<?= $user["user_id"] ?>"> <br>

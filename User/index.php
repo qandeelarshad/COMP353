@@ -74,6 +74,7 @@ $statement = $conn->query($sql_query);
             <?php }?>
         </tbody>
     </table>
-    <a href="../home.php">Back to homepage</a>
+    <a href="../home.php">Back to homepage</a> <br>
+    <a href="../logout.php">Logout </a>
 </body>
 </html>
