@@ -31,8 +31,7 @@ $statement = $conn->query($sql_query);
                 <!-- cell -->
                 <td>country_id</td>
                 <td>country_name</td>
-                <td>region_id</td>
-                <td>government_id</td>       
+                <td>region_id</td>      
             </tr>
         </thead>
         <tbody>
@@ -41,7 +40,6 @@ $statement = $conn->query($sql_query);
                     <td><?= $row["country_id"] ?></td>
                     <td><?= $row["country_name"] ?></td>
                     <td><?= $row["region_id"] ?></td>
-                    <td><?= $row["government_id"] ?></td>
                     <td>
                         <a href="./show.php?country_id=<?=$row["country_id"] ?>">Show</a>
                         <a href="./edit.php?country_id=<?=$row["country_id"] ?>">Edit</a>
