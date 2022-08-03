@@ -51,6 +51,6 @@ $statement = $conn->query($sql_query);
             <?php }?>
         </tbody>
     </table>
-    <a href="../">Back to homepage</a>
+    <a href="../home.php">Back to homepage</a>
 </body>
 </html>

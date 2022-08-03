@@ -25,6 +25,8 @@ $user = $getuserid->fetch(PDO::FETCH_ASSOC); //fetch the data to country
 </head>
 <body>
     <h1><?= $user["user_first_name"] ?></h1>
-    <h2>Citizenship: <?= $user["user_citizenship"] ?></h2>
+    <h2>Citizenship: <?= $user["user_citizenship"] ?></h2> <br>
+
+    <a href="./"> Back to Users list</a>
 </body>
 </html>

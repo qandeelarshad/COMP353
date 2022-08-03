@@ -1,6 +1,7 @@
 <?php
 // backend code goes here
 require_once '../database.php';
+session_start();
 
 // $db_name = "ruc353_1";
 // $table_name = ".User";
@@ -9,6 +10,7 @@ $table_name = ".user";
 
 $sql_query = "SELECT * FROM " .$db_name.$table_name;
 $statement = $conn->query($sql_query);
+
 // $statement->execute();
 ?>
 
@@ -55,14 +57,21 @@ $statement = $conn->query($sql_query);
                     <td><?= $row["user_citizenship"] ?></td>
                     <td><?= $row["user_is_suspended"] ?></td>
                     <td>
+
+                        <?php if (($_SESSION['role_id'] == 4 )) { ?>
+
                         <a href="./show.php?user_id=<?=$row["user_id"] ?>">Show</a>
                         <a href="./edit.php?user_id=<?=$row["user_id"] ?>">Edit</a>
                         <a href="./delete.php?user_id=<?=$row["user_id"] ?>">Delete</a>
+
+                        <?php } else {?>
+                            <a href="./show.php?user_id=<?=$row["user_id"] ?>">Show</a>
+                            <?php } ?>
                     </td>
                 </tr>
             <?php }?>
         </tbody>
     </table>
-    <a href="../">Back to homepage</a>
+    <a href="../home.php">Back to homepage</a>
 </body>
 </html>
