@@ -66,6 +66,26 @@ $statement = $conn->query($sql_query);
                         <a href="./edit.php?user_id=<?=$row["user_id"] ?>">Edit</a>
                         <a href="./delete.php?user_id=<?=$row["user_id"] ?>">Delete</a>
 
+                        <!-- <form method="post">
+                        <input type="submit" name="Suspend"
+                            class="button" value="Suspend" />
+                        </form> -->
+
+                        <?php
+        // if(array_key_exists('Suspend', $_POST)) {
+        //     button1();
+        // }
+
+        // function button1() {
+        //     require_once '../database.php';
+        //     // $db_name = "ruc353_1";
+        //     // $table_name = ".User";
+        //     $db_name = "local_ruc353_1";
+        //     $table_name = ".user";
+        //     $countryUpdate = $conn->prepare("UPDATE " .$db_name.$table_name. " SET user_is_suspended = :user_is_suspended
+        //                                                         WHERE user_id = :user_id;");
+        // }
+    ?> 
                         <?php } else {?>
                             <a href="./show.php?user_id=<?=$row["user_id"] ?>">Show</a>
                             <?php } ?>

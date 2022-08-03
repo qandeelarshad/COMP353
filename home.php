@@ -15,8 +15,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_username'])) {
 <body>
     
 <h1>Hello, <?php echo $_SESSION["user_username"], " Role: " .$_SESSION["role_id"]; ?> </h1>
-
-Choose where you would like to go: <br> 
+ 
 <?php 
 if ($_SESSION['role_id'] == 1 ) { ?>
 
@@ -25,6 +24,7 @@ if ($_SESSION['role_id'] == 1 ) { ?>
 <?php } else if ($_SESSION['role_id'] == 2 ) { ?>
 
   <a href="./User/index.php">View Users</a> <br>
+  <a href="./Article/index.php">View Articles</a> <br>
 
 <?php } else if ($_SESSION['role_id'] == 3 ) { ?>  
 
@@ -41,6 +41,7 @@ if ($_SESSION['role_id'] == 1 ) { ?>
 </select> -->
 
 <a href="./User/index.php">View Users</a> <br>
+<a href="./Article/index.php">View Articles</a> <br>
 <a href="./Country/index.php">View Countries</a>
 
 <?php } ?>

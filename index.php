@@ -7,7 +7,7 @@
     <title>COMP 353_1 Database</title>
 </head>
 <body>
-    <h1>Choose what you would like to do</h1>
+    
 
     <form action="login.php" method="post">
 

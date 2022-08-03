@@ -17,29 +17,18 @@ $user = $getuser->fetch(PDO::FETCH_ASSOC); //fetch the data to country
 if(isset($_POST["user_first_name"]) && isset($_POST["user_last_name"]) 
 && isset($_POST["user_phone"]) && isset($_POST["user_email"]) && isset($_POST["user_username"])
 && isset($_POST["user_password"]) && isset($_POST["role_id"]) && isset($_POST["user_citizenship"])
-//&& isset($_POST["user_is_suspended"])
-) {
+&& isset($_POST["user_is_suspended"])) {
     
-    // $countryUpdate = $conn->prepare("UPDATE " .$db_name.$table_name. " SET user_first_name = :user_first_name,
-    //                                                                         user_last_name =  :user_last_name, 
-    //                                                                         user_phone = :user_phone,
-    //                                                                         user_email = :user_email,
-    //                                                                         user_username = :user_username,
-    //                                                                         user_password = :user_password,
-    //                                                                         role_id = :role_id,
-    //                                                                         user_citizenship = :user_citizenship,
-    //                                                                         user_is_suspended = :user_is_suspended
-    //                                                             WHERE user_id = :user_id;");
-
     $countryUpdate = $conn->prepare("UPDATE " .$db_name.$table_name. " SET user_first_name = :user_first_name,
-    user_last_name =  :user_last_name, 
-    user_phone = :user_phone,
-    user_email = :user_email,
-    user_username = :user_username,
-    user_password = :user_password,
-    role_id = :role_id,
-    user_citizenship = :user_citizenship
-WHERE user_id = :user_id;");
+                                                                            user_last_name =  :user_last_name, 
+                                                                            user_phone = :user_phone,
+                                                                            user_email = :user_email,
+                                                                            user_username = :user_username,
+                                                                            user_password = :user_password,
+                                                                            role_id = :role_id,
+                                                                            user_citizenship = :user_citizenship,
+                                                                             user_is_suspended = :user_is_suspended
+                                                                WHERE user_id = :user_id;");
 
     $countryUpdate->bindParam(":user_id", $_POST["user_id"]);                                                                
     $countryUpdate->bindParam(":user_first_name", $_POST["user_first_name"]);
@@ -50,7 +39,7 @@ WHERE user_id = :user_id;");
     $countryUpdate->bindParam(":user_password", $_POST["user_password"]);
     $countryUpdate->bindParam(":role_id", $_POST["role_id"]);
     $countryUpdate->bindParam(":user_citizenship", $_POST["user_citizenship"]);
-    // $countryUpdate->bindParam(":user_is_suspended", $_POST["user_is_suspended"]);
+    $countryUpdate->bindParam(":user_is_suspended", $_POST["user_is_suspended"]);
 
 
     if ($countryUpdate->execute()) {
@@ -68,12 +57,20 @@ WHERE user_id = :user_id;");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Country</title>
+    <script>
+        function checkDateZero(value){
+            if (value == '0000-00-00') {
+                return null;
+            }
+        }
+    </script>
 </head>
 <body>
     <h1>Edit User</h1>
     <form action="./edit.php" method="post">
 
     <label for="user_first_name">First Name</label><br>
+
         <input type="text" name="user_first_name" id="user_first_name" value="<?= $user["user_first_name"] ?>"> <br>
 
         <label for="user_last_name"> Last Name</label><br>
@@ -97,13 +94,18 @@ WHERE user_id = :user_id;");
         <label for="user_citizenship"> Citizenship</label><br>
         <input type="text" name="user_citizenship" id="user_citizenship" value="<?= $user["user_citizenship"] ?>"> <br>
 
-
+        <!-- <label for="user_is_suspended"> Suspension Date</label><br>
+        <input type="date" name="user_is_suspended" id="user_is_suspended" value="<?= $date = $user["user_is_suspended"]?>" > <br>    -->
         
+
+            
         <!-- hidden input -->
         <input type="hidden" name="user_id" id="user_id" value="<?= $user["user_id"] ?>"> <br>
-
-        <button type="submit">Update</button>
+        <input type="hidden" name="lblItemName" value="<?php echo $ItemName; ?>">
+        
+        <button type="submit" >Update</button>
     </form>
+
     <a href="./"> Back to User list</a>
 </body>
 </html>

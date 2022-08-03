@@ -2,6 +2,8 @@
 // backend code goes here
 require_once '../database.php';
 
+session_start();
+
 // $db_name = "ruc353_1";
 // $table_name = ".Country";
 $db_name = "local_ruc353_1";
@@ -55,9 +57,22 @@ $statement = $conn->query($sql_query);
                     <td><?= $row["article_organization_id"] ?></td>
                     <td><?= $row["article_is_removed"] ?></td>
                     <td>
+
                         <a href="./show.php?article_id=<?=$row["article_id"] ?>">Show</a>
+                        <form method="post" action="subscribe.php">
+                        <input type="submit" name="Subscribe"
+                            class="button" value="Subscribe" />
+                        </form>
+
+                        
+
+                        <?php 
+                            if ($_SESSION['role_id'] == 2 && $_SESSION['user_id'] == $row["article_researcher_id"] ) { ?>
+
                         <a href="./edit.php?article_id=<?=$row["article_id"] ?>">Edit</a>
                         <a href="./delete.php?article_id=<?=$row["article_id"] ?>">Delete</a>
+
+                        <?php } ?>
                     </td>
                 </tr>
             <?php }?>
