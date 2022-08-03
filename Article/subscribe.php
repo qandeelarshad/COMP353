@@ -65,9 +65,8 @@
                     $conn->query($sql_sub_res);
         }
     
-
-
         ?> <br>
+        <br>
         <a href="./index.php">Back to Artciles </a>
 
 

@@ -24,7 +24,9 @@ $statement = $conn->query($sql_query);
 </head>
 <body>
     <h1>List of Articles</h1>
+    <?php if (($_SESSION['role_id'] == 3 ) OR ($_SESSION['role_id'] == 2 )) { ?>
     <a href="./create.php">Add an article</a>
+    <?php }?>
     <table>
         <!-- header -->
         <thead> 
@@ -68,7 +70,7 @@ $statement = $conn->query($sql_query);
                         
 
                         <?php 
-                            if ($_SESSION['role_id'] == 2 && $_SESSION['user_id'] == $row["article_researcher_id"] ) { ?>
+                            if (($_SESSION['role_id'] == 2 && $_SESSION['user_id'] == $row["article_researcher_id"] ) OR ($_SESSION['role_id'] == 3 && $_SESSION['user_id'] == $row["article_researcher_id"] )) { ?>
 
                         <a href="./edit.php?article_id=<?=$row["article_id"] ?>">Edit</a>
                         <a href="./delete.php?article_id=<?=$row["article_id"] ?>">Delete</a>

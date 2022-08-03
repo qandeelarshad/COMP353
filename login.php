@@ -57,6 +57,7 @@ require_once "database.php";
                 $_SESSION['user_id'] = $row['user_id'];
                 $_SESSION['role_id'] = $row['role_id'];
                 $_SESSION['user_id'] = $row['user_id'];
+                $_SESSION['user_email'] = $row['user_email'];
 
                 header("Location: home.php"); //check this
                 exit();
