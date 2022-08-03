@@ -59,10 +59,11 @@ $statement = $conn->query($sql_query);
                     <td>
 
                         <a href="./show.php?article_id=<?=$row["article_id"] ?>">Show</a>
-                        <form method="post" action="subscribe.php">
+                        <!-- <form method="post" action="subscribe.php">
                         <input type="submit" name="Subscribe"
                             class="button" value="Subscribe" />
-                        </form>
+                        </form> -->
+                        <a href="./subscribe.php?article_id=<?=$row["article_id"] ?>">Subscribe</a>
 
                         
 

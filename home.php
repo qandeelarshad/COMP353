@@ -20,6 +20,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_username'])) {
 if ($_SESSION['role_id'] == 1 ) { ?>
 
   <a href="./User/index.php">View Users</a> <br>
+  <a href="./Article/index.php">View Articles</a> <br>
 
 <?php } else if ($_SESSION['role_id'] == 2 ) { ?>
 
@@ -29,6 +30,7 @@ if ($_SESSION['role_id'] == 1 ) { ?>
 <?php } else if ($_SESSION['role_id'] == 3 ) { ?>  
 
   <a href="./User/index.php">View Users</a>
+  <a href="./Article/index.php">View Articles</a> <br>
 
 <?php } else if ($_SESSION['role_id'] == 4 ) { ?>
 <!-- <select>  

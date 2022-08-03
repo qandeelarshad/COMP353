@@ -28,6 +28,8 @@ require_once "database.php";
         exit();
     }
 
+    // $db_name = "local_ruc353_1";
+    // $table_name = ".User";
         $db_name = "local_ruc353_1";
         $table_name = ".user";
 
@@ -45,7 +47,6 @@ require_once "database.php";
 
             // $row = mysqli_fetch_assoc($result);
 
-
             if ($row['user_username'] == $uname && $row['user_password'] == $pass) {
 
                 echo "Logged in!";
@@ -55,6 +56,7 @@ require_once "database.php";
                 $_SESSION['user_first_name'] = $row['user_first_name'];
                 $_SESSION['user_id'] = $row['user_id'];
                 $_SESSION['role_id'] = $row['role_id'];
+                $_SESSION['user_id'] = $row['user_id'];
 
                 header("Location: home.php"); //check this
                 exit();
