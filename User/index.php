@@ -24,7 +24,9 @@ $statement = $conn->query($sql_query);
 </head>
 <body>
     <h1>List of Users</h1>
+    <?php if (($_SESSION['role_id'] == 4 )) { ?>
     <a href="./create.php">Add a User</a>
+    <?php } ?>
     <table>
         <!-- header -->
         <thead> 
