@@ -3,37 +3,32 @@
 // $db_name = "ruc353_1";
 // $table_name = ".Country";
 $db_name = "local_ruc353_1";
-$table_name = ".country";
+$table_name = ".vaccine";
 
 //show current data of country:
-$getcountry = $conn->prepare("SELECT * FROM " .$db_name.$table_name. " AS country
-                            WHERE country.country_id = :country_id;");
+$getvaccine = $conn->prepare("SELECT * FROM " .$db_name.$table_name. " AS vaccine
+                            WHERE vaccine.vaccine_id = :vaccine_id;");
 
-$getcountry->bindParam(":country_id", $_GET["country_id"]);
-$getcountry->execute();
-$country = $getcountry->fetch(PDO::FETCH_ASSOC); //fetch the data to country
+$getvaccine->bindParam(":vaccine_id", $_GET["vaccine_id"]);
+$getvaccine->execute();
+$vaccine = $getvaccine->fetch(PDO::FETCH_ASSOC); //fetch the data to country
 
 // check if all data has been passed
-if(isset($_POST["country_name"]) &&
-   isset($_POST["region_id"]) && 
-   isset($_POST["government_id"]) && 
-   isset($_POST["country_id"])) {
+if(isset($_POST["vaccine_id"]) &&
+   isset($_POST["vaccine_name"]) 
+   ) {
     
-    $countryUpdate = $conn->prepare("UPDATE " .$db_name.$table_name. " SET country_name = :country_name,
-                                                                    region_id = :region_id, 
-                                                                    government_id = :government_id
-                                WHERE country_id = :country_id;");
+    $vaccineUpdate = $conn->prepare("UPDATE " .$db_name.$table_name. " SET vaccine_id = :vaccine_id,
+                                                                         vaccine_name = :vaccine_name
+                                WHERE vaccine_id = :vaccine_id;");
 
-    $countryUpdate->bindParam(":country_name", $_POST["country_name"]);
-    $countryUpdate->bindParam(":region_id", $_POST["region_id"]);
-    $countryUpdate->bindParam(":government_id", $_POST["government_id"]);
-    $countryUpdate->bindParam(":country_id", $_POST["country_id"]);
+    $vaccineUpdate->bindParam(":vaccine_id", $_POST["vaccine_id"]);
+    $vaccineUpdate->bindParam(":vaccine_name", $_POST["vaccine_name"]);
 
-
-    if ( $countryUpdate->execute()) {
-        header("Location: ."); //brings to index of country
+    if ( $vaccineUpdate->execute()) {
+        header("Location: ."); //brings to index of vaccine
     } else {
-        header("Location: ./edit.php?country_id=".$_POST["country_id"]);
+        header("Location: ./edit.php?vaccine_id=".$_POST["vaccine_id"]);
     }
 }
 ?>
@@ -44,26 +39,20 @@ if(isset($_POST["country_name"]) &&
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Country</title>
+    <title>Edit Vaccine</title>
 </head>
 <body>
-    <h1>Edit country</h1>
+    <h1>Edit vaccine</h1>
     <form action="./edit.php" method="post">
 
-        <label for="country_name"> Name</label><br>
-        <input type="text" name="country_name" id="country_name" value="<?= $country["country_name"] ?>"> <br>
+        <label for="vaccine_id"> Vaccine ID</label><br>
+        <input type="number" name="vaccine_id" id="vaccine_id" value="<?= $vaccine["vaccine_id"] ?>"> <br>
 
-        <label for="region_id"> Region ID</label><br>
-        <input type="number" name="region_id" id="region_id" value="<?= $country["region_id"] ?>"> <br>
- 
-        <label for="government_id"> Governement ID</label><br>
-        <input type="number" name="government_id" id="government_id" value="<?= $country["government_id"] ?>"> <br>
-        
-        <!-- hidden input -->
-        <input type="hidden" name="country_id" id="country_id" value="<?= $country["country_id"] ?>"> <br>
+        <label for="vaccine_name"> Vaccine name</label><br>
+        <input type="text" name="vaccine_name" id="vaccine_name" value="<?= $vaccine["vaccine_name"] ?>"> <br>
 
         <button type="submit">Update</button>
     </form>
-    <a href="./"> Back to Country list</a>
+    <a href="./"> Back to Vaccine list</a>
 </body>
 </html>

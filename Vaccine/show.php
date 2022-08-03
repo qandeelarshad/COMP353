@@ -3,15 +3,15 @@
 // $db_name = "ruc353_1";
 // $table_name = ".Country";
 $db_name = "local_ruc353_1";
-$table_name = ".country";
+$table_name = ".vaccine";
 
-//show current data of country:
-$getcountry = $conn->prepare("SELECT * FROM " .$db_name.$table_name. " AS country
-                            WHERE country.country_id = :country_id;");
+//show current data of vaccine:
+$getvaccine = $conn->prepare("SELECT * FROM " .$db_name.$table_name. " AS vaccine
+                            WHERE vaccine.vaccine_id = :vaccine_id;");
 
-$getcountry->bindParam(":country_id", $_GET["country_id"]);
-$getcountry->execute();
-$country = $getcountry->fetch(PDO::FETCH_ASSOC); //fetch the data to country
+$getvaccine->bindParam(":vaccine_id", $_GET["vaccine_id"]);
+$getvaccine->execute();
+$vaccine = $getvaccine->fetch(PDO::FETCH_ASSOC); //fetch the data to vaccine
 
 ?>
 <!DOCTYPE html>
@@ -20,12 +20,11 @@ $country = $getcountry->fetch(PDO::FETCH_ASSOC); //fetch the data to country
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $country["country_name"] ?></title>
+    <title><?= $vaccine["vaccine_id"] ?></title>
 </head>
 <body>
-    <h1><?= $country["country_name"] ?></h1>
-    <h2>Region ID: <?= $country["region_id"] ?></h2>
-    <h2>Governement ID: <?= $country["government_id"] ?></h2>
+    <h1><?= $vaccine["vaccine_id"] ?></h1>
+    <h2>vaccine name: <?= $vaccine["vaccine_name"] ?></h2>
     
 </body>
 </html>

@@ -33,10 +33,10 @@ if(isset($_POST["vaccine_id"]) && isset($_POST["vaccine_name"])) {
 <body>
     <h1>Add vaccine</h1>
     <form action="./create.php" method="post">
-        <label for="vaccine_id"> Name</label><br>
+        <label for="vaccine_id"> Vaccine ID</label><br>
         <input type="number" name="vaccine_id" id="vaccine_id"> <br>
 
-        <label for="vaccine_name"> Region ID</label><br>
+        <label for="vaccine_name"> Vaccine name</label><br>
         <input type="text" name="vaccine_name" id="vaccine_name"> <br>
         
         <button type="submit">Add</button>
